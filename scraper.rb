@@ -11,8 +11,8 @@ def scrape_page(page, comment_url)
       "info_url" => (page.uri + tr.search('td').at('a')["href"]).to_s,
       "council_reference" => tds[1],
       "date_received" => Date.new(year, month, day).to_s,
-      "description" => tds[3].gsub("&amp;", "&").split("<br>")[1].squeeze.strip,
-      "address" => tds[3].gsub("&amp;", "&").split("<br>")[0].gsub("\r", " ").gsub("<strong>","").gsub("</strong>","").squeeze.strip + ", NSW",
+      "description" => tds[3].gsub("&amp;", "&").split("<br>")[1].squeeze(" ").strip,
+      "address" => tds[3].gsub("&amp;", "&").split("<br>")[0].gsub("\r", " ").gsub("<strong>","").gsub("</strong>","").squeeze(" ").strip + ", NSW",
       "date_scraped" => Date.today.to_s,
       "comment_url" => comment_url
     }
@@ -41,8 +41,8 @@ def click(page, doc)
   end
 end
 
-url = "http://datracking.kmc.nsw.gov.au/datrackingUI/Modules/applicationmaster/default.aspx?page=found&1=thismonth&4a=DA%27,%27Section96%27,%27Section82A%27,%27Section95a&6=F"
-comment_url = "mailto:kmc@kmc.nsw.gov.au"
+url = "http://pdonline.frasercoast.qld.gov.au/Modules/ApplicationMaster/default.aspx?page=found&1=thismonth&4a=BPS%27,%27MC%27,%27OP%27,%27SB%27,%27MCU%27,%27ROL%27,%27OPWKS%27,%27ACA&6=F"
+comment_url = "mailto:enquiry@frasercoast.qld.gov.au"
 
 agent = Mechanize.new
 
