@@ -12,7 +12,7 @@ def scrape_page(page, comment_url)
       "council_reference" => tds[1],
       "date_received" => Date.new(year, month, day).to_s,
       "description" => tds[3].gsub("&amp;", "&").split("<br>")[1].squeeze(" ").strip,
-      "address" => tds[3].gsub("&amp;", "&").split("<br>")[0].gsub("\r", " ").gsub("<strong>","").gsub("</strong>","").squeeze(" ").strip + ", NSW",
+      "address" => tds[3].gsub("&amp;", "&").split("<br>")[0].gsub("\r", " ").gsub("<strong>","").gsub("</strong>","").squeeze(" ").strip + ", QLD",
       "date_scraped" => Date.today.to_s,
       "comment_url" => comment_url
     }
