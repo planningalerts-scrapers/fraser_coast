@@ -1,9 +1,6 @@
 require 'scraperwiki'
 require 'mechanize'
 
-
-ENV['MORPH_PERIOD'] = 'lastmonth'
-
 case ENV['MORPH_PERIOD']
   when 'lastmonth'
     period = 'lastmonth'
