@@ -1,6 +1,19 @@
 require 'scraperwiki'
 require 'mechanize'
 
+
+ENV['MORPH_PERIOD'] = 'lastmonth'
+
+case ENV['MORPH_PERIOD']
+  when 'lastmonth'
+    period = 'lastmonth'
+  when 'thismonth'
+    period = 'thismonth'
+  else
+    period = 'thisweek'
+end
+puts "Getting data in `" + period + "`, changable via MORPH_PERIOD variable"
+
 # Scraping from Masterview 2.0
 
 def scrape_page(page, comment_url)
