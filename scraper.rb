@@ -53,7 +53,6 @@ def click(page, doc)
   end
 end
 
-url = "http://pdonline.frasercoast.qld.gov.au/Modules/ApplicationMaster/default.aspx?page=found&1=thismonth&4a=BPS%27,%27MC%27,%27OP%27,%27SB%27,%27MCU%27,%27ROL%27,%27OPWKS%27,%27ACA&6=F"
 url = "https://pdonline.frasercoast.qld.gov.au/Modules/ApplicationMaster/default.aspx?page=found&1=" + period + "&4a=BPS%27,%27MC%27,%27OP%27,%27SB%27,%27MCU%27,%27ROL%27,%27OPWKS%27,%27QMCU%27,%27QRAL%27,%27QOPW%27,%27QDBW%27,%27QPOS%27,%27QSPS%27,%27QEXE%27,%27QCAR%27,%27ACA&6=F"
 comment_url = "mailto:enquiry@frasercoast.qld.gov.au"
 
