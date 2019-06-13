@@ -13,7 +13,7 @@ puts "Getting data in `" + period + "`, changable via MORPH_PERIOD variable"
 
 # Scraping from Masterview 2.0
 
-def scrape_page(page, comment_url)
+def scrape_page(page)
   page.at("table.rgMasterTable").search("tr.rgRow,tr.rgAltRow").each do |tr|
     tds = tr.search('td').map{|t| t.inner_html.gsub("\r\n", "").strip}
     day, month, year = tds[2].split("/").map{|s| s.to_i}
@@ -23,8 +23,7 @@ def scrape_page(page, comment_url)
       "date_received" => Date.new(year, month, day).to_s,
       "description" => tds[3].gsub("&amp;", "&").split("<br>")[1].squeeze(" ").strip,
       "address" => tds[3].gsub("&amp;", "&").split("<br>")[0].gsub("\r", " ").gsub("<strong>","").gsub("</strong>","").squeeze(" ").strip + ", QLD",
-      "date_scraped" => Date.today.to_s,
-      "comment_url" => comment_url
+      "date_scraped" => Date.today.to_s
     }
 
 #     puts record
@@ -50,7 +49,6 @@ def click(page, doc)
 end
 
 url = "https://pdonline.frasercoast.qld.gov.au/Modules/ApplicationMaster/default.aspx?page=found&1=" + period + "&4a=BPS%27,%27MC%27,%27OP%27,%27SB%27,%27MCU%27,%27ROL%27,%27OPWKS%27,%27QMCU%27,%27QRAL%27,%27QOPW%27,%27QDBW%27,%27QPOS%27,%27QSPS%27,%27QEXE%27,%27QCAR%27,%27ACA&6=F"
-comment_url = "mailto:enquiry@frasercoast.qld.gov.au"
 
 agent = Mechanize.new
 
@@ -67,7 +65,7 @@ next_page_link = true
 
 while next_page_link
   puts "Scraping page #{current_page_no}..."
-  scrape_page(page, comment_url)
+  scrape_page(page)
 
   page_links = page.at(".rgNumPart")
   if page_links
