@@ -1,1 +1,10 @@
-This scraper has been merged into https://github.com/planningalerts-scrapers/multiple_masterview (fraser_coast)
+This is a scraper that runs on [Morph](https://morph.io). To get started [see the documentation](https://morph.io/documentation)
+
+Add any issues to https://github.com/planningalerts-scrapers/issues/issues
+
+
+## To run the scraper
+
+  bundle exec ruby scraper.rb
+
+
