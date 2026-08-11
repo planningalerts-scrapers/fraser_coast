@@ -10,8 +10,8 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    bigdecimal (4.0.1)
-    csv (3.3.5)
+    bigdecimal (4.1.2)
+    csv (3.3.6)
     httparty (0.24.2)
       csv
       mini_mime (>= 1.0.0)
@@ -19,23 +19,42 @@ GEM
     httpclient (2.9.0)
       mutex_m
     mini_mime (1.1.5)
-    multi_xml (0.8.1)
+    multi_xml (0.9.1)
       bigdecimal (>= 3.1, < 5)
     mutex_m (0.3.0)
-    sqlite3 (1.6.9-x86_64-linux)
+    sqlite3 (2.2.0-aarch64-linux-gnu)
+    sqlite3 (2.2.0-aarch64-linux-musl)
+    sqlite3 (2.2.0-arm-linux-gnu)
+    sqlite3 (2.2.0-arm-linux-musl)
+    sqlite3 (2.2.0-arm64-darwin)
+    sqlite3 (2.2.0-x86-linux-gnu)
+    sqlite3 (2.2.0-x86-linux-musl)
+    sqlite3 (2.2.0-x86_64-darwin)
+    sqlite3 (2.2.0-x86_64-linux-gnu)
+    sqlite3 (2.2.0-x86_64-linux-musl)
     sqlite_magic (0.0.6)
       sqlite3
 
 PLATFORMS
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  x86-linux-gnu
+  x86-linux-musl
+  x86_64-darwin
   x86_64-linux
+  x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   httparty
   scraperwiki!
-  sqlite3 (~> 1.6.3)
+  sqlite3 (~> 2.2.0)
 
 RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.10
+   2.6.9
